@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Guest;
 
+use App\Models\Singer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,8 @@ class PageController extends Controller
         return view ('contacts');
     }
     public function singers(){
-        return view ('singers');
+
+        $singers = Singer::all();
+        return view ('singers', compact('singers'));
     }
 }
