@@ -1,3 +1,3 @@
-<footer class="bg-dark text-white py-3 text-center">
+<footer class="py-3 text-center">
    <span>Made by Alexandro F., Martina D.R., Luca R., Alessia B. - Powered by A.I.</span>
 </footer>
