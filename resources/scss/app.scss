@@ -1,9 +1,25 @@
+@use './partials/variables' as *;
 @import '~bootstrap/scss/bootstrap';
+
+body {
+    font-family: 'Work Sans', sans-serif;
+}
 
 nav{
     a{
         &.nav-link{
+            text-transform: uppercase;
             color: white;
+            font-weight: 300;
+            letter-spacing: 2px;
+            border-bottom: 4px solid transparent;
+            padding: 1.2rem;
+            &:hover {
+                color: white;
+            }
+            &.active {
+                border-bottom: 4px solid $secondary;
+            }
         }
     }
 }
