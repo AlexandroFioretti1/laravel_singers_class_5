@@ -11,12 +11,12 @@ class PageController extends Controller
     public function index(){
         return view ('home');
     }
-    public function contacts(){
-        return view ('contacts');
-    }
     public function singers(){
-
+        
         $singers = Singer::all();
         return view ('singers', compact('singers'));
+    }
+    public function shop(){
+        return view ('shop');
     }
 }

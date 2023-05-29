@@ -3,12 +3,13 @@
 @section('content')
 
 <div class="container">
-    <div class="row row-cols-1 row-cols-lg-4">
+    <div class="row row-cols-1 row-cols-lg-4 g-4">
         @foreach ($singers as $singer)
         <div class="col">
-            <div class="card h-100">
-                <div class="card-img">
-                    <img class="card-img-top" src="{{$singer->image_url}}" alt="">
+            <div class="card h-100 rounded-0 border-0 p-2">
+                <div class="card-img rounded-0">
+                    {{-- <img class="card-img-top rounded-0" src="{{$singer->image_url}}" alt=""> --}}
+                    <img class="card-img-top rounded-0" src="https://indiehoy.com/wp-content/uploads/2023/01/thom-yorke-2.jpg" alt="">
                 </div>
                 <div class="card-body">
                     <h4>{{$singer->artist_name}}</h4>
@@ -18,7 +19,7 @@
                     <p>Birth date : {{$singer->birth_date}}</p>
                     @if ($singer->is_in_a_band === 1)
                     <span>
-                        <a href="#">See The Band</a>
+                        <a href="#" class="bg-white text-dark">See The Band</a>
                     </span>
                     @endif
                 </div>

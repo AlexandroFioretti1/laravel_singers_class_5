@@ -1,9 +1,58 @@
+@use './partials/variables' as *;
 @import '~bootstrap/scss/bootstrap';
 
-nav{
-    a{
-        &.nav-link{
+body {
+    font-family: 'Work Sans', sans-serif;
+}
+
+header {
+    background-color: #fcfae3d3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+    nav{
+        .nav-brand {
+            text-decoration: none;
+            span.logo {
+                font-family: 'Courier Prime', monospace;
+                color: #e73559;
+                font-size: 1.5rem;
+            }
+        }
+        a{
+            &.nav-link{
+                color: $darker;
+                text-transform: uppercase;
+                font-weight: 400;
+                letter-spacing: 2px;
+                border-bottom: 4px solid transparent;
+                padding: 1.2rem;
+                &.active {
+                    border-bottom: 4px solid #e73559;
+                }
+            }
+        }
+    }
+}
+
+main {
+    padding-top: 4rem;
+    background-image: url('https://img.freepik.com/premium-vector/vinyl-records-pattern-music-illustration-creative-luxury-cover_510351-10088.jpg?w=2000');
+    background-size: 400px;
+    .container {
+        padding: 2rem 0;
+        .card {
+            background-color: #e735598f;
             color: white;
         }
+    }
+}
+
+footer {
+    background-color: #fcfae3d3;
+    span {
+        font-size: 0.75rem;
     }
 }
