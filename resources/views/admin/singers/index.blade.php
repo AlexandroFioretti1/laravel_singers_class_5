@@ -39,7 +39,7 @@
                         <td>{{$singer->published_album}}</td>
                         <td>{{$singer->is_in_a_band}}</td>
                         <td>
-                            SHOW
+                            <a class="btn btn-warning" href="{{route('singers.show', $singer->id )}}" role="button">Show</a> 
                             <a class="btn btn-warning" href="{{route('singers.edit', $singer->id )}}" role="button">Edit</a> 
                             DELETE</td>
                         
