@@ -19,4 +19,8 @@ class PageController extends Controller
     public function shop(){
         return view ('shop');
     }
+    public function contacts()
+    {
+        return view('contacts');
+    }
 }

@@ -5,7 +5,7 @@ body {
     font-family: 'Work Sans', sans-serif;
 }
 
-header {
+/* header {
     background-color: #fcfae3d3;
     position: fixed;
     top: 0;
@@ -54,5 +54,51 @@ footer {
     background-color: #fcfae3d3;
     span {
         font-size: 0.75rem;
+    }
+} */
+header {
+    background-color: rgba(255, 255, 255, 0.558);
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 140px;
+    z-index: 10000;
+    nav{
+        height: 100%;
+        .nav-brand {
+            padding-left: 1rem;
+            img {
+                justify-self: start;
+            }
+        }
+        .nav_menu {
+            height: calc(100% - 93px);
+            a{
+                &.nav-link{
+                    color: $darker;
+                    text-transform: uppercase;
+                    font-weight: 400;
+                    letter-spacing: 2px;
+                    padding: 1.2rem;
+                    &.active {
+                        background-color: $secondary;
+                    }
+                }
+            }
+        }
+}
+}
+main {
+    padding-right: 120px;
+    background-image: url('../img/1356b588-a9d7-45a8-af21-02141b1f82fe.png');
+    background-size: 400px;
+    .container {
+        padding: 2rem 0;
+        .card {
+            //background-color: #e735598f;
+            background-color: transparent;
+            color: white;
+        }
     }
 }
