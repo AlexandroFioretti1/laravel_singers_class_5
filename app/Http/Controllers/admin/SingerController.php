@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Models\Singer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreSingerRequest;
+use App\Http\Requests\UpdateSingerRequest;
 
 
 class SingerController extends Controller
@@ -16,7 +18,7 @@ class SingerController extends Controller
      */
     public function index()
     {
-        $singers = Singer::all();
+        $singers = Singer::OrderByDesc('id')->get();
         return view('admin.singers.index', compact('singers'));
     }
 
@@ -38,7 +40,13 @@ class SingerController extends Controller
      */
     public function store(StoreSingerRequest $request)
     {
-        //
+        $val_data = $request->validated();
+
+        //dd($val_data);
+
+        Singer::create($val_data);
+        return to_route('singers.index')->with('message', 'Singer created succesfully!');
+
     }
 
     /**
@@ -72,6 +80,11 @@ class SingerController extends Controller
      */
     public function update(UpdateSingerRequest $request, Singer $Singer)
     {
+        $val_data = $request->validated();
+
+        $Singer->update($val_data);
+
+        return to_route('singers.index')->with('message', 'Singer updated succesfully!');
     }
 
     /**
