@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Guest\PageController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\admin\SingerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,5 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'index'])->name('home');
 Route::get('/singers', [PageController::class, 'singers'])->name('singers');
 Route::get('/shop', [PageController::class, 'shop'])->name('shop');
-Route::get('/contacts', [PageController::class, 'contacts'])->name('contacts');
-
+Route::resource('/admin/singers', SingerController::class);
