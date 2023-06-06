@@ -96,6 +96,6 @@ class SingerController extends Controller
     public function destroy(Singer $Singer)
     {
         $Singer->delete();
-        return to_route('admin.singers.index')->with('message', 'Singer deleted successfully!');
+        return to_route('singers.index')->with('message', 'Singer deleted successfully!');
     }
 }

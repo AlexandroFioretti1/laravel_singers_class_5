@@ -5,64 +5,13 @@ body {
     font-family: 'Work Sans', sans-serif;
 }
 
-/* header {
-    background-color: #fcfae3d3;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10000;
-    nav{
-        .nav-brand {
-            text-decoration: none;
-            span.logo {
-                font-family: 'Courier Prime', monospace;
-                color: #e73559;
-                font-size: 1.5rem;
-            }
-        }
-        a{
-            &.nav-link{
-                color: $darker;
-                text-transform: uppercase;
-                font-weight: 400;
-                letter-spacing: 2px;
-                border-bottom: 4px solid transparent;
-                padding: 1.2rem;
-                &.active {
-                    border-bottom: 4px solid #e73559;
-                }
-            }
-        }
-    }
-}
-
-main {
-    padding-top: 4rem;
-    background-image: url('https://img.freepik.com/premium-vector/vinyl-records-pattern-music-illustration-creative-luxury-cover_510351-10088.jpg?w=2000');
-    background-size: 400px;
-    .container {
-        padding: 2rem 0;
-        .card {
-            background-color: #e735598f;
-            color: white;
-        }
-    }
-}
-
-footer {
-    background-color: #fcfae3d3;
-    span {
-        font-size: 0.75rem;
-    }
-} */
 header {
     background-color: rgba(255, 255, 255, 0.558);
     position: fixed;
     top: 0;
     right: 0;
     height: 100%;
-    width: 140px;
+    width: 180px;
     z-index: 10000;
     nav{
         height: 100%;
@@ -89,16 +38,29 @@ header {
         }
 }
 }
+
 main {
-    padding-right: 120px;
+    padding-right: 180px;
     background-image: url('../img/1356b588-a9d7-45a8-af21-02141b1f82fe.png');
     background-size: 400px;
+    padding-bottom: 56px;
+    margin-bottom: -56px;
     .container {
         padding: 2rem 0;
         .card {
-            //background-color: #e735598f;
             background-color: transparent;
             color: white;
         }
+    }
+    .jumbotron {
+        background-image: url('../img/1108906-music-headphones-Audifonos-darkness-computer-wallpaper-black-and-white-monochrome-photography.jpeg');
+        background-size: cover;
+        height: 450px;
+        padding-right: 3rem;
+    }
+    .home_text {
+        background-color: black;
+        color: white;
+        padding-left: 3rem;
     }
 }
