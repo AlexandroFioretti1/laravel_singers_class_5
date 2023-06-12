@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Singer;
 use App\Models\Album;
 use App\Http\Requests\StoreAlbumRequest;
 use App\Http\Requests\UpdateAlbumRequest;
+use Illuminate\Support\Str;
+
 
 class AlbumController extends Controller
 {
@@ -15,7 +18,8 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        //
+        $albums=Album::orderByDesc('id')->get();
+        return view ('admin.albums.index', compact('albums'));
     }
 
     /**

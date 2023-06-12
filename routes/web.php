@@ -3,6 +3,8 @@
 use App\Http\Controllers\Guest\PageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\SingerController;
+use App\Http\Controllers\AlbumController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,3 +20,4 @@ Route::get('/', [PageController::class, 'index'])->name('home');
 Route::get('/singers', [PageController::class, 'singers'])->name('singers');
 Route::get('/shop', [PageController::class, 'shop'])->name('shop');
 Route::resource('/admin/singers', SingerController::class);
+Route::resource('/admin/albums', AlbumController::class);
