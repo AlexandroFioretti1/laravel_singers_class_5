@@ -18,7 +18,7 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        $albums=Album::orderByDesc('id')->get();
+        $albums = Album::orderByDesc('id')->get();
         return view ('admin.albums.index', compact('albums'));
     }
 
@@ -29,7 +29,8 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        //
+        $albums = Album::orderByDesc('id')->get();
+        return view('admin.albums.index');
     }
 
     /**
@@ -40,7 +41,15 @@ class AlbumController extends Controller
      */
     public function store(StoreAlbumRequest $request)
     {
-        //
+        
+        $val_data = $request->validated();
+
+        $slug = Str::slug($request->name);
+        //dd($slug);
+        $val_data['slug'] = $slug;
+
+        Album::create($val_data);
+        return to_route('admin.albums.index')->with('message', 'album created successfully');
     }
 
     /**
@@ -85,6 +94,7 @@ class AlbumController extends Controller
      */
     public function destroy(Album $album)
     {
-        //
+        $album->delete();
+        return to_route('albums.index')->with('message', 'Album deleted successfully');
     }
 }

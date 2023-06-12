@@ -28,7 +28,7 @@ class UpdateAlbumRequest extends FormRequest
             'cover_img' => 'required|max:255',
             'release_date' => 'required|date',
             'tracks' => 'required|max:200',
-            'singer_id'=> 'exists:singers,id'
+            'singer_id'=>  ['exists:singers,id']
         ];
     }
 }
