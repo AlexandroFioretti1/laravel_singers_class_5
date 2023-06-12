@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('singers', function (Blueprint $table) {
             $table->id();
-            $table->string('artist_name',40);
-            $table->string('name',15)->nullable();
-            $table->string('lastname',30)->nullable();
-            $table->string('image_url',255);
+            $table->string('artist_name', 40);
+            $table->string('slug', 150);
+            $table->string('name', 15)->nullable();
+            $table->string('lastname', 30)->nullable();
+            $table->string('image_url', 255);
             $table->date('birth_date');
             $table->smallInteger('published_album')->nullable();
             $table->boolean('is_in_a_band')->default(false);

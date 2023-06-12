@@ -6,6 +6,7 @@ use App\Models\Singer;
 use Faker\Generator as Faker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class SingerSeeder extends Seeder
 {
@@ -16,9 +17,10 @@ class SingerSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 20; $i++) { 
+        for ($i = 0; $i < 20; $i++) {
             $singer = new Singer();
             $singer->artist_name = $faker->name();
+            $singer->slug = Str::slug($singer->artist_name, '-');
             $singer->name = $faker->firstName();
             $singer->lastname = $faker->lastName();
             $singer->image_url = $faker->imageUrl(640, 480, 'animals', true);
