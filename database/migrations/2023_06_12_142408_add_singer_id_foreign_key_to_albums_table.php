@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('singers', function (Blueprint $table) {
-            $table->unsignedBigInteger('album_id')->nullable()->after('id');
-            $table->foreign('album_id')->references('id')->on('albums')->onDelete('set null');
+        Schema::table('albums', function (Blueprint $table) {
+            $table->unsignedBigInteger('singer_id')->nullable()->after('id');
+            $table->foreign('singer_id')->references('id')->on('singers')->onDelete('set null');
         });
     }
 
@@ -26,9 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('singers', function (Blueprint $table) {
-            $table->dropForeign('singers_album_id_foreign');
-            $table->dropColumn('album_id');
+        Schema::table('albums', function (Blueprint $table) {
+            $table->dropForeign('albums_singer_id_foreign');
+            $table->dropColumn('singer_id');
         });
     }
 };

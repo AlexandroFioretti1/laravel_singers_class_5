@@ -10,19 +10,16 @@
             <div class="col-12">
                 <label for="artist_name" class="form-label">artist_name</label>
                 <input type="text" class="form-control " id="artist_name" name="artist_name" value="{{ old('artist_name') }}">
-             
             </div>
 
             <div class="col-12">
                 <label for="name" class="form-label">name</label>
                 <input type="text" class="form-control " id="name" name="name" value="{{ old('name') }}">
-             
             </div>
 
             <div class="col-12">
                 <label for="lastname" class="form-label">lastname</label>
                 <input type="text" class="form-control " id="lastname" name="lastname" value="{{ old('lastname') }}">
-             
             </div>
 
             <div class="col-12">
