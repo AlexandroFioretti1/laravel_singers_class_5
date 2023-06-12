@@ -31,7 +31,7 @@ class UpdateSingerRequest extends FormRequest
             'image_url' => ['required', 'max:255'],
             'birth_date'=> ['required', 'date'],
             'published_album'=> ['nullable'],
-            
+            'is_in_a_band' => ['boolean']
         ];
     }
 }

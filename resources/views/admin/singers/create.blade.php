@@ -40,15 +40,15 @@
                 <input type="number" step="1" class="form-control " id="published_album" name="published_album" value="{{ old('published_album') }}">
              
             </div>
-      <!--       <div class="col-12">
+             <div class="col-12">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="is_in_a_band" value="false" id="is_in_a_band">
+                  <input class="form-check-input" type="checkbox" name="is_in_a_band" value="1" id="is_in_a_band">
                   <label class="form-check-label" for="is_in_a_band">
-                    Is in a Band
+                    Is in a Band?
                   </label>
                 </div>
              
-            </div> -->
+            </div>
             
             <div class="col-md-4 mx-auto text-center pt-3">
                 <button type="submit" class="btn btn-light text-dark px-4">Create</button>
