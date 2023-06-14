@@ -18,6 +18,7 @@
                         <th scope="col">ID</th>
                         <th scope="col">Image</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Author</th>
                         <th scope="col">Release Date</th>
                         <th scope="col">Tracks</th>
                         <th scope="col">Actions</th>
@@ -34,7 +35,7 @@
                         </td>
 
                         <td>{{$album->name}}</td>
-                        
+                        <td>{{$album->singer?->artist_name}}</td>
                         <td>{{$album->release_date}}</td>
                         <td>{{$album->tracks}}</td>
                  

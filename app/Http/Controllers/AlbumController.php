@@ -30,7 +30,8 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        return view('admin.albums.create');
+        $singers = Singer::orderBy('artist_name')->get();
+        return view('admin.albums.create', compact('singers'));
     }
 
     /**
@@ -71,7 +72,8 @@ class AlbumController extends Controller
      */
     public function edit(Album $album)
     {
-        return view('admin.albums.edit', compact('album'));
+        $singers = Singer::orderBy('artist_name')->get();
+        return view('admin.albums.edit', compact('album', 'singers'));
     }
 
     /**

@@ -41,6 +41,21 @@
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
+
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="singer_id" class="form-label">Author</label>
+                    <select class="form-select form-select-lg" name="singer_id" id="singer_id">
+                        <option value="" selected>Select author</option>
+                        @foreach($singers as $singer)
+                        <option  {{old('singer_id', []) == $singer_id ? 'selected' : ''}} value="{{$singer->id}}">{{$singer->artist_name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                @error('singer_id')
+                <small class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
          
             
             <div class="col-md-4 mx-auto text-center pt-3">

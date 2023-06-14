@@ -17,7 +17,7 @@ class Album extends Model
         return Str::slug($name, '-');
     }
 
-    public function singers() :BelongsTo
+    public function singer() :BelongsTo
     {
         return $this->belongsTo(Singer::class);
     }
