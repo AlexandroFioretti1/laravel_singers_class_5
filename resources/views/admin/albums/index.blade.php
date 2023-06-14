@@ -9,6 +9,7 @@
         <h2 class="text-white">Admin Area</h2>
         <a href="{{route('albums.create')}}" class="btn btn-light">Add new Album</a>
     </div>
+    @include('partials.session_message')
     <table>
         <div class="table-responsive">
             <table class="table table-primary">
@@ -29,7 +30,7 @@
                     <tr>
                         <td>{{$album->id}}</td>
                         <td>
-                            <img width="100px" src="{{ $album->cover_image }}" alt="">
+                            <img src="{{$album->cover_img}}" alt="" width="100px">
                         </td>
 
                         <td>{{$album->name}}</td>
@@ -38,9 +39,9 @@
                         <td>{{$album->tracks}}</td>
                  
                         <td>
-                            <a class="btn btn-primary" href="{{route('albums.show', $album->id )}}"
+                            <a class="btn btn-primary" href="{{route('albums.show', $album->slug)}}"
                                 role="button">Show</a>
-                            <a class="btn btn-warning" href="{{route('albums.edit', $album->id )}}"
+                            <a class="btn btn-warning" href="{{route('albums.edit', $album)}}"
                                 role="button">Edit</a>
                             <!-- Button trigger modal -->
                             <button type="button" data-bs-toggle="modal" data-bs-target="#modal{{$album->id}}" class="btn btn-danger">
@@ -64,7 +65,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Close</button>
-                                        <form action="{{route('albums.destroy', $album->id)}}" method="post"
+                                        <form action="{{route('albums.destroy', $album)}}" method="post"
                                             class="d-inline-block">
                                             @csrf
                                             @method('DELETE')

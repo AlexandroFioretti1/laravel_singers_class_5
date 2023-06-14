@@ -60,7 +60,7 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-        //
+        return view('admin.albums.show', compact('album'));
     }
 
     /**
@@ -71,7 +71,7 @@ class AlbumController extends Controller
      */
     public function edit(Album $album)
     {
-        //
+        return view('admin.albums.edit', compact('album'));
     }
 
     /**
@@ -83,7 +83,14 @@ class AlbumController extends Controller
      */
     public function update(UpdateAlbumRequest $request, Album $album)
     {
-        //
+        $val_data = $request->validated();
+
+        $slug = Str::slug($request->name);
+        //dd($slug);
+        $val_data['slug'] = $slug;
+
+        $album->update($val_data);
+        return to_route('albums.index')->with('message', 'Album updated successfully');
     }
 
     /**
