@@ -7,7 +7,7 @@
     <div class="row flex-row">
     <div class="text-white py-5 d-flex justify-content-between align-items-center">
         <h2 class="text-white">Admin Area</h2>
-        
+        <a href="{{route('albums.create')}}" class="btn btn-light">Add new Album</a>
     </div>
     <table>
         <div class="table-responsive">
@@ -86,47 +86,6 @@
         </div>
 
     </table>
-
-
-
-<section class="bg-dark text-white">
-    
-        
-        <form class="row g-3 p-5 my-3" action="{{route('singers.store')}}" method="post">
-            @csrf
-
-            <div class="col-6">
-                <label for="name" class="form-label">name</label>
-                <input type="text" class="form-control " id="name" name="name" value="{{ old('name') }}">
-             
-            </div>
-
-            <div class="col-6">
-                <label for="cover_img" class="form-label">cover_img</label>
-                <input type="text" class="form-control " id="cover_img" cover_img="cover_img" value="{{ old('cover_img') }}">
-             
-            </div>
-
-            <div class="col-6">
-                <label for="release_date" class="form-label">release_date</label>
-                <input type="date" class="form-control " id="release_date" name="release_date" value="{{ old('release_date') }}">
-             
-            </div>
-
-            <div class="col-6">
-                <label for="tracks" class="form-label">tracks</label>
-                <input type="number" step="1" class="form-control " id="tracks" name="tracks" value="{{ old('tracks') }}">
-             
-            </div>
-         
-            
-            <div class="col-md-4 mx-auto text-center pt-3">
-                <button type="submit" class="btn btn-light text-dark px-4">Create</button>
-            </div>
-        </form>
-        </div>
-    </div>
-</section>
 
 
 

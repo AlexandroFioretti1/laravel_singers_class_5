@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Singer;
 use App\Models\Album;
 use App\Http\Requests\StoreAlbumRequest;
@@ -29,8 +30,7 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        $albums = Album::orderByDesc('id')->get();
-        return view('admin.albums.index');
+        return view('admin.albums.create');
     }
 
     /**
@@ -49,7 +49,7 @@ class AlbumController extends Controller
         $val_data['slug'] = $slug;
 
         Album::create($val_data);
-        return to_route('admin.albums.index')->with('message', 'album created successfully');
+        return to_route('albums.index')->with('message', 'album created successfully');
     }
 
     /**
