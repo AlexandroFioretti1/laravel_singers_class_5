@@ -7,8 +7,9 @@
     <div class="row flex-row">
     <div class="text-white py-5 d-flex justify-content-between align-items-center">
         <h2 class="text-white">Admin Area</h2>
-        
+        <a href="{{route('albums.create')}}" class="btn btn-light">Add new Album</a>
     </div>
+    @include('partials.session_message')
     <table>
         <div class="table-responsive">
             <table class="table table-primary">
@@ -17,6 +18,7 @@
                         <th scope="col">ID</th>
                         <th scope="col">Image</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Author</th>
                         <th scope="col">Release Date</th>
                         <th scope="col">Tracks</th>
                         <th scope="col">Actions</th>
@@ -29,18 +31,18 @@
                     <tr>
                         <td>{{$album->id}}</td>
                         <td>
-                            <img width="100px" src="{{ $album->cover_image }}" alt="">
+                            <img src="{{$album->cover_img}}" alt="" width="100px">
                         </td>
 
                         <td>{{$album->name}}</td>
-                        
+                        <td>{{$album->singer?->artist_name}}</td>
                         <td>{{$album->release_date}}</td>
                         <td>{{$album->tracks}}</td>
                  
                         <td>
-                            <a class="btn btn-primary" href="{{route('albums.show', $album->id )}}"
+                            <a class="btn btn-primary" href="{{route('albums.show', $album->slug)}}"
                                 role="button">Show</a>
-                            <a class="btn btn-warning" href="{{route('albums.edit', $album->id )}}"
+                            <a class="btn btn-warning" href="{{route('albums.edit', $album)}}"
                                 role="button">Edit</a>
                             <!-- Button trigger modal -->
                             <button type="button" data-bs-toggle="modal" data-bs-target="#modal{{$album->id}}" class="btn btn-danger">
@@ -64,7 +66,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Close</button>
-                                        <form action="{{route('albums.destroy', $album->id)}}" method="post"
+                                        <form action="{{route('albums.destroy', $album)}}" method="post"
                                             class="d-inline-block">
                                             @csrf
                                             @method('DELETE')
@@ -86,47 +88,6 @@
         </div>
 
     </table>
-
-
-
-<section class="bg-dark text-white">
-    
-        
-        <form class="row g-3 p-5 my-3" action="{{route('singers.store')}}" method="post">
-            @csrf
-
-            <div class="col-6">
-                <label for="name" class="form-label">name</label>
-                <input type="text" class="form-control " id="name" name="name" value="{{ old('name') }}">
-             
-            </div>
-
-            <div class="col-6">
-                <label for="cover_img" class="form-label">cover_img</label>
-                <input type="text" class="form-control " id="cover_img" cover_img="cover_img" value="{{ old('cover_img') }}">
-             
-            </div>
-
-            <div class="col-6">
-                <label for="release_date" class="form-label">release_date</label>
-                <input type="date" class="form-control " id="release_date" name="release_date" value="{{ old('release_date') }}">
-             
-            </div>
-
-            <div class="col-6">
-                <label for="tracks" class="form-label">tracks</label>
-                <input type="number" step="1" class="form-control " id="tracks" name="tracks" value="{{ old('tracks') }}">
-             
-            </div>
-         
-            
-            <div class="col-md-4 mx-auto text-center pt-3">
-                <button type="submit" class="btn btn-light text-dark px-4">Create</button>
-            </div>
-        </form>
-        </div>
-    </div>
-</section>
 
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Singer;
 use App\Models\Album;
 use App\Http\Requests\StoreAlbumRequest;
@@ -29,8 +30,8 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        $albums = Album::orderByDesc('id')->get();
-        return view('admin.albums.index');
+        $singers = Singer::orderBy('artist_name')->get();
+        return view('admin.albums.create', compact('singers'));
     }
 
     /**
@@ -49,7 +50,7 @@ class AlbumController extends Controller
         $val_data['slug'] = $slug;
 
         Album::create($val_data);
-        return to_route('admin.albums.index')->with('message', 'album created successfully');
+        return to_route('albums.index')->with('message', 'album created successfully');
     }
 
     /**
@@ -60,7 +61,7 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-        //
+        return view('admin.albums.show', compact('album'));
     }
 
     /**
@@ -71,7 +72,8 @@ class AlbumController extends Controller
      */
     public function edit(Album $album)
     {
-        //
+        $singers = Singer::orderBy('artist_name')->get();
+        return view('admin.albums.edit', compact('album', 'singers'));
     }
 
     /**
@@ -83,7 +85,14 @@ class AlbumController extends Controller
      */
     public function update(UpdateAlbumRequest $request, Album $album)
     {
-        //
+        $val_data = $request->validated();
+
+        $slug = Str::slug($request->name);
+        //dd($slug);
+        $val_data['slug'] = $slug;
+
+        $album->update($val_data);
+        return to_route('albums.index')->with('message', 'Album updated successfully');
     }
 
     /**

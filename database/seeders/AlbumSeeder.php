@@ -19,7 +19,7 @@ class AlbumSeeder extends Seeder
     {
         for ($i = 0; $i < 20; $i++) {
             $album = new Album();
-            $album->name = $faker->name();
+            $album->name = $faker->sentence(3);
             $album->slug = Str::slug($album->name, '-');
             $album->cover_img = $faker->imageUrl(640, 480, 'animals', true);
             $album->release_date = $faker->dateTime();

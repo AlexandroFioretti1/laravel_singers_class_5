@@ -21,3 +21,5 @@ Route::get('/singers', [PageController::class, 'singers'])->name('singers');
 Route::get('/shop', [PageController::class, 'shop'])->name('shop');
 Route::resource('/admin/singers', SingerController::class);
 Route::resource('/admin/albums', AlbumController::class);
+Route::resource('/admin/albums', AlbumController::class)->parameters(['albums' => 'album:slug']);
+

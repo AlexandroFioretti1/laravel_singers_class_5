@@ -3,41 +3,42 @@
 @section('content')
 <section class="bg-dark text-white">
     <div class="container create_container py-5">
-        
+        <h2 class="pb-4">Add new Singer</h2>
         <form class="row g-3" action="{{route('singers.store')}}" method="post">
             @csrf
 
-            <div class="col-12">
-                <label for="artist_name" class="form-label">artist_name</label>
+            <div class="col-12 col-md-6">
+                <label for="artist_name" class="form-label">Artist Name</label>
                 <input type="text" class="form-control " id="artist_name" name="artist_name" value="{{ old('artist_name') }}">
              
             </div>
 
-            <div class="col-12">
-                <label for="name" class="form-label">name</label>
+            <div class="col-12 col-md-6">
+                <label for="name" class="form-label">Real Name</label>
                 <input type="text" class="form-control " id="name" name="name" value="{{ old('name') }}">
              
             </div>
 
-            <div class="col-12">
-                <label for="lastname" class="form-label">lastname</label>
+            <div class="col-12 col-md-6">
+                <label for="lastname" class="form-label">Lastname</label>
                 <input type="text" class="form-control " id="lastname" name="lastname" value="{{ old('lastname') }}">
              
             </div>
 
-            <div class="col-12">
-                <label for="image_url" class="form-label">image_url</label>
+            <div class="col-12 col-md-6">
+                <label for="image_url" class="form-label">Image Url</label>
                 <input type="text" class="form-control " id="image_url" name="image_url" value="{{ old('image_url') }}">
              
             </div>
-            <div class="col-12">
-                <label for="birth_date" class="form-label">birth_date</label>
+            <div class="col-12 col-md-6">
+                <label for="birth_date" class="form-label">Birth Date</label>
                 <input type="date" class="form-control " id="birth_date" name="birth_date" value="{{ old('birth_date') }}">
              
             </div>
-            <div class="col-12">
-                <label for="published_album" class="form-label">published_album</label>
-                <input type="number" step="1" class="form-control " id="published_album" name="published_album" value="{{ old('published_album') }}">
+            <div class="col-12 col-md-6">
+                <label for="published_album" class="form-label">Published Albums</label>
+                <input type="number" step="1" class="form-control " id="published_album" name="published_album" value="{{ old('published_album') }}"
+                placeholder="Type albums number..">
              
             </div>
              <div class="col-12">
