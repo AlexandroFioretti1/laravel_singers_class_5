@@ -4,6 +4,7 @@ use App\Http\Controllers\Guest\PageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\SingerController;
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\GenreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,5 @@ Route::get('/shop', [PageController::class, 'shop'])->name('shop');
 Route::resource('/admin/singers', SingerController::class);
 Route::resource('/admin/albums', AlbumController::class);
 Route::resource('/admin/albums', AlbumController::class)->parameters(['albums' => 'album:slug']);
-
+Route::resource('/admin/genres', GenreController::class);
+Route::resource('/admin/genres', GenreController::class)->parameters(['genres' => 'genre:slug']);

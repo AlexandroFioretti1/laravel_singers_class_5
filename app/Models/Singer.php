@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 
@@ -17,8 +18,12 @@ class Singer extends Model
         return Str::slug($artist_name, '-');
     }
 
-    public function singers() :HasMany
+    public function albums(): HasMany
     {
         return $this->hasMany(Album::class);
+    }
+    public function genres(): BelongsToMany
+    {
+        return $this->belongsToMany(Genre::class);
     }
 }

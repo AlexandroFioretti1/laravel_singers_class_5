@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSingerRequest;
 use App\Http\Requests\UpdateSingerRequest;
-
+use App\Models\Genre;
 
 class SingerController extends Controller
 {
@@ -30,7 +30,9 @@ class SingerController extends Controller
      */
     public function create()
     {
-        return view('admin.singers.create');
+
+        $genres = Genre::orderBy('name')->get();
+        return view('admin.singers.create', compact('genres'));
     }
 
     /**
@@ -47,7 +49,6 @@ class SingerController extends Controller
 
         Singer::create($val_data);
         return to_route('singers.index')->with('message', 'Singer created succesfully!');
-
     }
 
     /**
