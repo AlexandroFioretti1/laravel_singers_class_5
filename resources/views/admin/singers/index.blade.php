@@ -8,6 +8,8 @@
     <div class="text-white py-5 d-flex justify-content-between align-items-center">
         <h2 class="text-white">Admin Area</h2>
         <a href="{{route('singers.create')}}" class="btn btn-light">Add new Singer</a>
+        <a class="nav-link btn btn-light text-black py-2 px-4 {{Route::currentRouteName() === 'albums.index' ? 'active' : ''}}" href="{{route('albums.index')}}" aria-current="page">Go To Albums</a>
+        
     </div>
     <table>
         <div class="table-responsive">

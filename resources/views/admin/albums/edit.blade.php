@@ -48,7 +48,7 @@
                     <select class="form-select form-select-lg" name="singer_id" id="singer_id">
                         <option value="" selected>Select author</option>
                         @foreach($singers as $singer)
-                        <option  {{old('singer_id', []) == $singer_id ? 'selected' : ''}} value="{{$singer->id}}">{{$singer->artist_name}}</option>
+                        <option {{old('singer_id', []) == $singer->id ? 'selected' : ''}} value="{{$singer->id}}">{{$singer->artist_name}}</option>
                         @endforeach
                     </select>
                 </div>
